@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GONEP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        // Redirect to the main content after 3 seconds
+        setTimeout(function() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div id="splash-screen" class="splash-content">
+        <h1>Welcome to GONEP</h1>
+        <p>Loading...</p>
+    </div>
+    <div id="main-content" class="container hidden">
+        <header>
+            <h1>GONEP</h1>
+        </header>
+        <main>
+            <div id="start-test">
+                <h2>Start New Test > Liver Function Test</h2>
+                <p>Choose one of the below options</p>
+                <div class="test-options">
+                    <div class="test-btn" onclick="startTest('ALT Enzymes', 500)">
+                        ALT Enzymes <br><span>Start Test</span>
+                    </div>
+                    <div class="test-btn" onclick="startTest('AST Enzymes', 600)">
+                        AST Enzymes <br><span>Start Test</span>
+                    </div>
+                    <div class="test-btn" onclick="startTest('Bilirubin Levels', 700)">
+                        Bilirubin Levels <br><span>Start Test</span>
+                    </div>
+                    <div class="test-btn" onclick="startTest('Ferritin', 800)">
+                        Ferritin <br><span>Start Test</span>
+                    </div>
+                    <div class="test-btn" onclick="startTest('Serum Iron', 900)">
+                        Serum Iron <br><span>Start Test</span>
+                    </div>
+                </div>
+                <button id="test-mock-bluetooth" onclick="testMockBluetooth()">Test Mock Bluetooth</button>
+            </div>
+            <div id="loading-screen" class="hidden">
+                <h2>Running Test</h2>
+                <p>Transforming Healthcare Through Advancement</p>
+                <p id="device-name"></p>
+                <p id="test-name"></p>
+                <p id="wavelength"></p>
+                <h2>Test Results</h2>
+                <div class="loading-animation"></div>
+                <div id="test-results">
+                    <p><strong>Test:</strong> <span id="result-test"></span></p>
+                    <p><strong>Value:</strong> <span id="result-value"></span></p>
+                    <p><strong>Normal Range:</strong> <span id="result-normal-range"></span></p>
+                    <p><strong>Interpretation:</strong> <span id="result-interpretation"></span></p>
+                </div>
+            </div>
+            <div id="wavelength-input" class="hidden">
+                <label for="wavelength-value">Enter Wavelength:</label>
+                <input type="number" id="wavelength-value" placeholder="Enter wavelength">
+                <button onclick="submitWavelength()">Submit Wavelength</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
