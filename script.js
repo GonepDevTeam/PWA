@@ -84,7 +84,7 @@ function submitWavelength() {
             })
             .then(() => {
                 console.log(`Wavelength ${wavelength} sent successfully.`);
-                document.getElementById('wavelength').textContent = `Wavelength: ${wavelength}`;
+                document.getElementById('wavelength').textContent = `Wavelength: ${wavelength} nm`;
             })
             .catch(error => {
                 alert('Failed to send wavelength: ' + error);
